@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+       <title>PIXEL CYBER</title>
+       <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: white;
+            font-family: sans-serif;
+            font-size: medium;
+            padding: 0;
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: black;
+            margin-top: 30px;
+            text-align: center;
+            
+        }
+
+        p {
+            line-height: 1.5;
+            margin: 10px 20px;
+            text-align: center;
+        }
+
+        ul {
+            width: 50%;
+            list-style-type: square;
+            margin: 0 30px auto;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+        nav {
+            text-align: center; 
+            background-color: black; 
+            margin: 20px 0; 
+            padding: 15px 0; 
+            font-weight: bold; 
+            border-radius: 10px;
+        }
+nav a{
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+    transition: color 0.3s,transform 0.3s;
+}
+nav a:hover{
+    color: #00bfff;
+    transform: scale(1.1);
+}
+        p.contact-info {
+            font-weight: bold;
+            color: black;
+
+        }
+        .contact-section{
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
+        .gallery {
+display: flex;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+margin-bottom: 30px;
+        }
+        .gallery img {
+            border-radius: 10px;
+            transition: transform 0.3s,box-shadow 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        @media (max-width: 600px){
+            .gallery img {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        .contact-section,ul{
+            width: 90%;
+        }
+        section{
+            padding: 40px;
+            margin-top: 20px;
+        }
+        .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+       </style> 
+    </head>
+    <body>
+        
+        <h1>Welcome to Pixel Cyber</h1>
+        <nav>
+            <a href="#">Home</a> 
+            <a href="#">Services</a> 
+            <a href="#">About</a> 
+            <a href="#">Contact</a> 
+        </nav>
+        <p> We offer printing, scanning, printing of banners, e-citizen services</p>
+
+        <h2>Our gallery</h2>
+        <div class="gallery">
+        <a href="images/prinring.jpg" target="_blank">
+          <img src="images/printing.jpg" alt="Printing at Pixel Cyber" width="300" title="Printing Services"
+          data-full="images/printing.jpg">
+        </a>
+        <a href="images/banner.jpg" target="_blank">
+           <img src="images/banner.jpg" alt="Banner printing" width="300" title="Banner Printing"
+           data-full="images/banner.jpg">
+        </a>
+        
+            <a href="images/printing.jpg" target="_blank">
+
+            </a>
+            <a href="images/banner.jpg" target="_blank">
+
+            </a>
+
+        </div>
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img class="lightbox-img" src="" alt="">
+        </div>
+        
+        <h2>Our services</h2>
+        <ul>
+            <li>Printing and photocopying</li>
+            <li>Printing banners</li>
+            <li>Online Applications</li>
+            <li>Scanning and Lamination</li>
+        </ul>
+        <h2 id="Contact">Contact us</h2>
+        <a href="#contact">Contact</a>
+        <div class="contact-section">
+        <p class="contact-info">Location: Naivasha</p>
+        <p class="contact-info" >Phone:0741075667</p>
+        <p class="contact-info">Email:wambuikaren182@gmail.com</p>
+        </div>
+        <script>
+const images = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const closeBtn = document.querySelector('.lightbox .close');
+
+images.forEach(img => {
+    img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.dataset.full;
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+lightbox.addEventListener('click', e => {
+    if (e.target !== lightboxImg && e.target !== closeBtn) {
+        lightbox.style.display = 'none';
+    }
+});
+</script>
+   </body>
+</html>
